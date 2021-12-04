@@ -1,6 +1,6 @@
 function captureData() {
-  let login = document.getElementById("login").value;
-  let password = document.getElementById("password").value;
+  let login = document.getElementById("LoginInput").value;
+  let password = document.getElementById("passwordInput").value;
   return { login, password };
 }
 
@@ -13,16 +13,19 @@ function sendingData(data) {
     if (xhr.readyState === 4 && xhr.status === 200) {
       let response = JSON.parse(xhr.responseText);
       if (response.success) {
-        alert("Success");
+        console.log("Success");
       } else {
-        alert("Failure");
+        console.log("Failure");
+        console.log(response.jwt);
+        console.log(response.usuario);
       }
     }
   };
 }
 
-let data = captureData();
-let LoginButton = document.getElementById("loginButton");
-LoginButton.addEventListener("click", function () {
-  sendingData(data);
+document.addEventListener("DOMContentLoaded", function (event) {
+  document.getElementById("loginButton").addEventListener("click", function () {
+    let data = captureData();
+    sendingData(data);
+  });
 });

@@ -14,6 +14,7 @@ let reglasUsrModificacion = {
   correoE: "required|min:3|max:30|email",
   telefono: "required|min:3|max:20",
   direccion: "required|min:3|max:50",
+  profesion: "required|min:3|max:50",
 };
 
 exports.buscarPorLoginYPw = function (login, password) {
@@ -128,6 +129,7 @@ exports.modificarUsuario = function (usuario, autoridad) {
             telefono: usuario.telefono,
             direccion: usuario.direccion,
             idioma: usuario.idioma,
+            profesion: usuario.profesion,
           },
         }
       )
